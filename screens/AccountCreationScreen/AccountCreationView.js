@@ -2,8 +2,10 @@ import React from 'react'
 import { View, Image,Text,TouchableOpacity } from 'react-native'
 import Strings from '../../Strings'
 import styles from './styles'
+import { useNavigation } from '@react-navigation/native';
 
-const AccountCreationView = () => {
+const AccountCreationView = (props) => {
+    const navigation = useNavigation(); 
     return (
         <View style={styles.container}>
             <Image source={(require('../../assets/images/acastro_191014_1777_google_pixel_0005.0.jpg'))} style={styles.image} />
@@ -12,7 +14,7 @@ const AccountCreationView = () => {
             <TouchableOpacity style={styles.button1}>
                 <Text style={styles.haveBankText}>{ Strings.accountCreationScreen.haveBankText}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity style={styles.button2} onPress={() => {navigation.navigate('BankCreationScreen')}}>
                 <Text style={styles.createBankText}>{Strings.accountCreationScreen.createBankText }</Text>
             </TouchableOpacity>
         </View>
