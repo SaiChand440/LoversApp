@@ -5,7 +5,7 @@ import colorConstant from '../../utilities/colorConstant';
 
 const BankCreationView = (props) => {
     
-    const { Progress,navigation } = props;
+    const { Progress,navigation,onNextButtonClick,bankNameField,onBankNameChanged,onBankPasswordChanged,bankPasswordField } = props;
 
     return (
         <View style={{ flex: 1 }}>
@@ -19,9 +19,12 @@ const BankCreationView = (props) => {
             <Text>step 1/4</Text>
             <Text>Bank Name</Text>
             <Text>This name will be used for entrance to your bank by its depositors</Text>
-            <TextInput placeholder='Enter your bank Name' />
-            <TextInput placeholder='Password' />
-            <TouchableOpacity onPress={() => {navigation.navigate('MyDetailsCreationScreen')}}>
+            <TextInput placeholder='Enter your bank Name' onChangeText={onBankNameChanged}/>
+            <TextInput placeholder='Password' onChangeText={onBankPasswordChanged}/>
+            <TouchableOpacity onPress={() => {
+                onNextButtonClick(bankNameField,bankPasswordField);
+                // navigation.navigate('MyDetailsCreationScreen')
+            }}>
                 <Text>Next</Text>
             </TouchableOpacity>   
             </View>
