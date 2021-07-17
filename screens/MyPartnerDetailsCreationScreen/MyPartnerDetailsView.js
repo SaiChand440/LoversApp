@@ -1,11 +1,11 @@
-import React, { useState} from 'react'
+import React from 'react'
 import { View,Text,TextInput,TouchableOpacity } from 'react-native'
 import { ProgressBar } from 'react-native-paper';
 import colorConstant from '../../utilities/colorConstant';
 
 const MyPartnerDetailsView = (props) => {
     
-    const { Progress,navigation } = props;
+    const { Progress,onEnterYourPartnerNameFieldChanged,yourPartnerNameField,onNextButtonClick } = props;
 
     return (
         <View style={{ flex: 1 }}>
@@ -19,8 +19,10 @@ const MyPartnerDetailsView = (props) => {
             <Text>step 3/4</Text>
             <Text>Add your couple</Text>
             <Text>Your couple will be able to edit this Information in thier settings</Text>
-            <TextInput placeholder='Enter your Couple name' />
-            <TouchableOpacity onPress={() => {navigation.navigate('AdditionalCurrencyCreationScreen')}}>
+                <TextInput placeholder='Enter your Couple name' onChangeText={onEnterYourPartnerNameFieldChanged}/>
+            <TouchableOpacity onPress={() => {
+                onNextButtonClick(yourPartnerNameField)            
+            }}>
                 <Text>Next</Text>
             </TouchableOpacity>   
             </View>

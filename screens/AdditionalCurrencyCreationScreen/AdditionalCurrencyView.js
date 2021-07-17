@@ -5,7 +5,7 @@ import colorConstant from '../../utilities/colorConstant';
 
 const AdditionalCurrencyView = (props) => {
     
-    const { Progress,navigation } = props;
+    const { Progress,onEnterAdditionalCurrenyChanged,additionalCurrencyField,onNextButtonClick } = props;
 
     return (
         <View style={{ flex: 1 }}>
@@ -19,8 +19,10 @@ const AdditionalCurrencyView = (props) => {
             <Text>step 4/4</Text>
             <Text>Additional Currency</Text>
             <Text>Optional, you can add additional Currency to make your experience better</Text>
-            <TextInput placeholder='Additional Currency,e.x. Chocolate' />
-            <TouchableOpacity onPress={() => {navigation.navigate('MyDetailsScreen')}}>
+                <TextInput placeholder='Additional Currency,e.x. Chocolate' onChangeText={onEnterAdditionalCurrenyChanged}/>
+            <TouchableOpacity onPress={() =>
+                    onNextButtonClick(additionalCurrencyField)
+            }>
                 <Text>Create Bank</Text>
             </TouchableOpacity>   
             </View>

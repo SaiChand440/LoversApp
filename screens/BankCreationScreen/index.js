@@ -26,7 +26,8 @@ const BankCreationScreen = () => {
 
     const onNextButtonClick = (bankName,bankPassword) => {
         addNewBank(bankName, bankPassword)
-        navigation.navigate('MyDetailsCreationScreen')
+        navigation.navigate('MyDetailsCreationScreen',{bankName:bankName})
+        // navigation.setParams({bankName:bankName})
     }
 
     const onBankNameChanged = (text) => {

@@ -23,7 +23,6 @@ const BankCreationView = (props) => {
             <TextInput placeholder='Password' onChangeText={onBankPasswordChanged}/>
             <TouchableOpacity onPress={() => {
                 onNextButtonClick(bankNameField,bankPasswordField);
-                // navigation.navigate('MyDetailsCreationScreen')
             }}>
                 <Text>Next</Text>
             </TouchableOpacity>   

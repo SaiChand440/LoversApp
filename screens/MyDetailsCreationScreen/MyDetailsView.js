@@ -5,7 +5,7 @@ import colorConstant from '../../utilities/colorConstant';
 
 const MyDetailsView = (props) => {
     
-    const { Progress,navigation } = props;
+    const { Progress,onEnterYourNameFieldChanged,yourNameField,onNextButtonClick } = props;
 
     return (
         <View style={{ flex: 1 }}>
@@ -19,8 +19,10 @@ const MyDetailsView = (props) => {
             <Text>step 2/4</Text>
             <Text>Your Information</Text>
             <Text>This is how you'll show up to depositors</Text>
-            <TextInput placeholder='Enter your Name' />
-            <TouchableOpacity onPress={() => {navigation.navigate('MyPartnerDetailsCreationScreen')}}>
+                <TextInput placeholder='Enter your Name' onChangeText={onEnterYourNameFieldChanged} />
+            <TouchableOpacity onPress={() => {
+                onNextButtonClick(yourNameField)
+            }}>
                 <Text>Next</Text>
             </TouchableOpacity>   
             </View>
